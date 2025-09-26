@@ -1,0 +1,31 @@
+# CLion / IntelliJ
+.idea/
+*.iml
+
+# CMake build folders
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+Testing/
+CTestTestfile.cmake
+
+# Compiled binaries and libs
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.a
+*.lib
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.DS_Store
