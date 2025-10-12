@@ -34,5 +34,18 @@ int main()
         << "it has a length of " << full_name.length();
 
 
+    std::string password ;
+    std::string confirm_password;
+
+    std::cout <<"Enter password\n";
+    std::cin >> password;
+    std::cout<<"enter confirm password\n";
+    std::cin >> confirm_password;
+
+
+    bool equal_password {};
+    equal_password = password.compare(confirm_password);
+
+    std::cout << equal_password;
     return 0;
 }
