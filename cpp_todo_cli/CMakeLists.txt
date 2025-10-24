@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 include(FetchContent)
 
+find_package(SQLite3 REQUIRED)
+
 FetchContent_Declare(
         structopt
         GIT_REPOSITORY https://github.com/p-ranav/structopt
@@ -21,5 +23,6 @@ FetchContent_MakeAvailable(structopt magic_enum)
 
 add_executable(cpp_todo_cli main.cpp)
 
-target_link_libraries(cpp_todo_cli PRIVATE structopt::structopt magic_enum::magic_enum)
+target_link_libraries(cpp_todo_cli PRIVATE structopt::structopt magic_enum::magic_enum  SQLite::SQLite3)
+
 

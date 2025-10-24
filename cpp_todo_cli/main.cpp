@@ -4,6 +4,7 @@
 #include <structopt/app.hpp>
 #include <map>
 #include <magic_enum/magic_enum.hpp>
+#include <sqlite3.h>
 
 struct Todo
 {
@@ -47,6 +48,14 @@ void processSelection(const Command& command);
 
 int main(int argc, char* argv[])
 {
+    sqlite3* DB;
+    int exit = 0;
+    exit = sqlite3_open("todo.sqlite", &DB);
+    if (exit)
+    {
+        std::cerr << "Error opening todo.sqlite " << sqlite3_errmsg(DB) << std::endl;
+        return (-1);
+    }
     try
     {
         auto options = structopt::app("todo").parse<CommandLineOptions>(argc, argv);
@@ -61,7 +70,9 @@ int main(int argc, char* argv[])
     {
         std::cout << e.what() << "\n";
         std::cout << e.help();
+        sqlite3_close(DB);
     }
+    sqlite3_close(DB);
 }
 
 void processSelection(const Command& command)
