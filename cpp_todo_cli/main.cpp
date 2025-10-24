@@ -5,7 +5,7 @@
 #include <map>
 #include <magic_enum/magic_enum.hpp>
 #include <sqlite3.h>
-
+#include "uuid.h"
 struct Todo
 {
     std::string identifier;
@@ -38,7 +38,7 @@ struct CommandLineOptions
 
 STRUCTOPT(CommandLineOptions, command);
 
-void createTodo();
+void createTodo(sqlite3* DB);
 void listTodo();
 void makeDone();
 void deleteTodo();
@@ -50,11 +50,11 @@ int main(int argc, char* argv[])
 {
     sqlite3* DB;
     const std::string createTableSql = "CREATE TABLE IF NOT EXISTS"
-        " todo ("
+        " todos ("
         "identifier INTEGER PRIMARY KEY NOT NULL,"
         "title TEXT NOT NULL,"
         "description TEXT,"
-        "done INTEGER NOT NULL);";
+        "done INTEGER NOT NULL DEFAULT 0);";
 
     int exit = 0;
     exit = sqlite3_open("todo.sqlite", &DB);
@@ -92,7 +92,7 @@ void processSelection(const Command& command, sqlite3* DB)
     switch (command)
     {
     case Command::CreateTodo:
-        createTodo();
+        createTodo(DB);
         break;
     case Command::DeleteTodo:
         deleteTodo();
@@ -109,8 +109,10 @@ void processSelection(const Command& command, sqlite3* DB)
 }
 
 
-void createTodo()
+void createTodo(sqlite3* DB)
 {
+    sqlite3_stmt* stmt = nullptr;
+
     std::cout << "Create todo:\n";
     std::string title;
     std::string description;
@@ -121,14 +123,33 @@ void createTodo()
     std::cout << "Todo description: ";
     std::getline(std::cin, description);
 
-    std::cout << title << description;
+    const char* sql = "INSERT INTO todo(identifier, title, description) VALUES (?, ? , ?);";
+    int rc = sqlite3_prepare_v2(DB, sql, -1, &stmt, nullptr);
+
+    if (rc != SQLITE_OK)
+    {
+        std::cerr << "Failed to prepare statement: " << sqlite3_errmsg(DB) << std::endl;
+        return;
+    }
+
+    uuids::uuid identifier = uuids::uuid_system_generator{}();
+
+    sqlite3_bind_text(stmt, 1, title.c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 2, title.c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 3, description.c_str(), -1, SQLITE_TRANSIENT);
+
+    rc = sqlite3_step(stmt);
+    if (rc != SQLITE_DONE)
+    {
+        std::cerr << "Failed to execute statement: " << sqlite3_errmsg(DB) << std::endl;
+    }
+    sqlite3_finalize(stmt);
 }
 
 void updateTodo()
 {
     std::cout << "Update todo\n";
 }
-
 
 void deleteTodo()
 {

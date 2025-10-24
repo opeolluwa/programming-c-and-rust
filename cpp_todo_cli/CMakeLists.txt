@@ -19,10 +19,16 @@ FetchContent_Declare(
         GIT_TAG v0.9.7
 )
 
-FetchContent_MakeAvailable(structopt magic_enum)
+FetchContent_Declare(
+        stduuid
+        GIT_REPOSITORY https://github.com/mariusbancila/stduuid
+        GIT_TAG v1.2.3
+)
+
+FetchContent_MakeAvailable(structopt magic_enum stduuid)
 
 add_executable(cpp_todo_cli main.cpp)
 
-target_link_libraries(cpp_todo_cli PRIVATE structopt::structopt magic_enum::magic_enum  SQLite::SQLite3)
+target_link_libraries(cpp_todo_cli PRIVATE structopt::structopt magic_enum::magic_enum SQLite::SQLite3 stduuid)
 
 
