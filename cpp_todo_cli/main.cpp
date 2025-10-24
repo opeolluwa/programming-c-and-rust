@@ -43,19 +43,31 @@ void listTodo();
 void makeDone();
 void deleteTodo();
 void updateTodo();
-void processSelection(const Command& command);
+void processSelection(const Command& command, sqlite3* DB);
 
 
 int main(int argc, char* argv[])
 {
     sqlite3* DB;
+    const std::string createTableSql = "CREATE TABLE IF NOT EXISTS"
+        " todo ("
+        "identifier INTEGER PRIMARY KEY NOT NULL,"
+        "title TEXT NOT NULL,"
+        "description TEXT,"
+        "done INTEGER NOT NULL);";
+
     int exit = 0;
     exit = sqlite3_open("todo.sqlite", &DB);
-    if (exit)
+    char* errorMessage;
+    exit = sqlite3_exec(DB, createTableSql.c_str(), NULL, 0, &errorMessage);
+
+    if (exit != SQLITE_OK)
     {
-        std::cerr << "Error opening todo.sqlite " << sqlite3_errmsg(DB) << std::endl;
-        return (-1);
+        std::cerr << "Error creating table: " << errorMessage << std::endl;
+        sqlite3_free(errorMessage);
     }
+    else
+        std::cout << "Table created successfully" << std::endl;
     try
     {
         auto options = structopt::app("todo").parse<CommandLineOptions>(argc, argv);
@@ -63,7 +75,7 @@ int main(int argc, char* argv[])
         auto command = magic_enum::enum_cast<Command>(command_passed);
         if (command.has_value())
         {
-            processSelection(command.value());
+            processSelection(command.value(), DB);
         }
     }
     catch (structopt::exception& e)
@@ -75,7 +87,7 @@ int main(int argc, char* argv[])
     sqlite3_close(DB);
 }
 
-void processSelection(const Command& command)
+void processSelection(const Command& command, sqlite3* DB)
 {
     switch (command)
     {
