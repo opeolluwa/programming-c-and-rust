@@ -111,7 +111,17 @@ void processSelection(const Command& command, sqlite3* DB)
 
 void createTodo()
 {
-    std::cout << "Create todo\n";
+    std::cout << "Create todo:\n";
+    std::string title;
+    std::string description;
+
+    std::cout << "Todo title: ";
+    std::getline(std::cin, title);
+
+    std::cout << "Todo description: ";
+    std::getline(std::cin, description);
+
+    std::cout << title << description;
 }
 
 void updateTodo()
