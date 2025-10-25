@@ -1,8 +1,9 @@
-// Ex9_01.cpp
-// Using a function template
+
 #include <iostream>
 #include <string>
 template<typename T> T larger(T a, T b);
+
+
 int main() {
     // Function template prototype
     std::cout << "Larger of 1.5 and 2.5 is " << larger(1.5, 2.5) << std::endl;

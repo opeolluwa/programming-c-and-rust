@@ -1,20 +1,8 @@
 #include <iostream>
 
 
-std::string get_friend_full_name()
-{
-    std::string first_name;
-    std::string last_name;
-    std::cout << "First name?:\t";
-    std::cin >> first_name;
-    std::cout << "Last name?\t:";
-    std::cin >> last_name;
-
-
-    std::string full_name = first_name + " " + last_name;
-    return full_name;
-}
-
+std::string get_friend_full_name();
+int power(int base, int index);
 
 int main()
 {
@@ -38,4 +26,31 @@ int main()
     {
         std::cout << "-" << name << "\n";
     }
+}
+
+
+std::string get_friend_full_name()
+{
+    std::string first_name;
+    std::string last_name;
+    std::cout << "First name?:\t";
+    std::cin >> first_name;
+    std::cout << "Last name?\t:";
+    std::cin >> last_name;
+
+
+    std::string full_name = first_name + " " + last_name;
+    return full_name;
+}
+
+
+int power(int base, int index)
+{
+    int cumulative{};
+    for (auto counter{}; counter < index; ++counter)
+    {
+        cumulative *= base;
+    }
+
+    return cumulative;
 }

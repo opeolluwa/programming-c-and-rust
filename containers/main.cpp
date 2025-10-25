@@ -5,11 +5,14 @@ int main()
 {
     std::array<unsigned, 5> scores{40, 78, 34, 67, 90};
 
-    for (auto score : scores)
+    unsigned total_score{};
+    for (auto score: scores)
     {
-        std::cout << score << std::endl;
+        total_score += score;
     }
 
-    std::cout << scores.size() << std::endl;
+    unsigned average_score = total_score / scores.size();
+
+    std::cout << average_score << std::endl;
     return 0;
 }
