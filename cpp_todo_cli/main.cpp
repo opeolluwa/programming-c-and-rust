@@ -27,7 +27,7 @@ enum class Command
 
 struct CommandLineOptions
 {
-    std::string command;
+    Command command;
 };
 
 STRUCTOPT(CommandLineOptions, command);
@@ -38,10 +38,10 @@ void deleteTodo(sqlite3* db);
 void updateTodo(sqlite3* db);
 void selectOneTodo(sqlite3* db);
 void listTodos(sqlite3* db);
+void processSelection(const Command& command, sqlite3* db);
 std::optional<Todo> findTodo(sqlite3* db, const std::string& todoIdentifier);
 std::optional<std::string> getIdentifier();
 
-void processSelection(const Command& command, sqlite3* db);
 
 int main(int argc, char* argv[])
 {
@@ -63,19 +63,12 @@ int main(int argc, char* argv[])
         std::cerr << "Error creating table: " << errorMessage << std::endl;
         sqlite3_free(errorMessage);
     }
-    else
-        std::cout << "Table created successfully" << std::endl;
+
 
     try
     {
         auto options = structopt::app("todo").parse<CommandLineOptions>(argc, argv);
-        std::string commandPassed = options.command;
-
-        auto command = magic_enum::enum_cast<Command>(commandPassed);
-        if (command.has_value())
-        {
-            processSelection(command.value(), db);
-        }
+        processSelection(options.command, db);
     }
     catch (structopt::exception& e)
     {
@@ -402,7 +395,6 @@ std::optional<std::string> getIdentifier()
 
     if (todoIdentifier.empty() || todoIdentifier.length() < 36)
     {
-
         return {};
     }
 

@@ -1,125 +1,100 @@
-# 300-Day Plan to Become a Rust/C++ Software Engineer
+# 2-Year Roadmap to Beast Mode: C++/Rust Mastery for Elite Gigs (Cloudflare, xAI, Bloomberg)
 
-**Goal**: Become job-ready as a systems programmer using **Rust** and **C++**, with a focus on backend, performance, and low-level systems.
+Yo, beast in the making! This 2-year blueprint builds on your Horton's C++17 grind and Rust Book deep-dive. It's phased for sustainable wins: **Year 1** locks foundations + intermediate firepower (mid-to-senior transition). **Year 2** unleashes advanced systems mastery, portfolio nukes, and network domination to land those $200k+ roles.
 
-**Your Background**: You know **Rust**. This plan accelerates **C++ mastery** while deepening Rust and building dual-language projects.
+**Core Principles**:
+- **Daily Grind**: 1-2 hrs books/code + 30 mins LeetCode/DS.
+- **Tracking**: GitHub repos per phase (e.g., `cpp-rust-beast-2026`). Weekly reviews in Notion/Journal.
+- **Milestones**: End-of-phase projects deployed (Docker/K8s) + blog post (Dev.to/Medium).
+- **Tools Stack**: CLion (C++), VS Code + rust-analyzer (Rust), Git, Docker, Valgrind/perf.
+- **Balance**: 1 rest day/week. Mentor juniors quarterly to solidify knowledge.
+- **Adapt**: Quarterly self-audit—pivot if a company trend (e.g., xAI's Grok infra) shifts.
 
----
-
-## Daily Commitment
-- **Weekdays**: 1–2 hours (focused coding/learning)
-- **Weekends**: 3–4 hours (projects, review)
-- **Tools**: VS Code / CLion, `g++`, `rustc`, GitHub, LeetCode
-- **Track Progress**: Notion, Trello, or a simple journal
-
----
-
-## Resources
-| Language | Books & References |
-|--------|-------------------|
-| **C++** | *C++ Primer* (Lippman), *Effective Modern C++* (Meyers), [cppreference.com](https://cppreference.com) |
-| **Rust** | *The Rust Book* (free), *Rust for Rustaceans* |
-| **Practice** | LeetCode, HackerRank, Codewars (solve in both languages) |
+Aim: From mid-Rust to C++/Rust polyglot. By EOY2, you're interviewing with "I built a fault-tolerant KV store in hybrid C++/Rust" on your lips.
 
 ---
 
-## 10-Phase Plan (30 Days Each)
+## Year 1: Foundation Forge (Months 1-12) – Build the Unbreakable Core
+Focus: Nail syntax/safety bridges, CS fundamentals, and solo projects. Transition from "coder" to "architect."
 
-| Phase | Days | Focus | Key Tasks & Mini-Project |
-|-------|------|-------|--------------------------|
-| **1: C++ Fundamentals** | 1–30 | Syntax, pointers, memory | Todo list CLI |
-| **2: C++ OOP** | 31–60 | Classes, inheritance, polymorphism | Bank account system |
-| **3: STL Mastery** | 61–90 | Containers, algorithms | Graph with adjacency list |
-| **4: Advanced C++** | 91–120 | Smart pointers, templates, RAII | Custom smart pointer |
-| **5: Advanced Rust + Interop** | 121–150 | Concurrency, FFI, unsafe | Port C++ project to Rust |
-| **6: DSA in Both Languages** | 151–180 | Arrays → Graphs | Pathfinding (Dijkstra) |
-| **7: Advanced DSA** | 181–210 | DP, greedy, optimization | LeetCode hard solves |
-| **8: Real Projects** | 211–240 | CLI tool, web server, game | 3 polished GitHub repos |
-| **9: System Design & Soft Skills** | 241–270 | Scalability, resume, open-source | Contribute to OSS |
-| **10: Interview Prep** | 271–300 | Mock interviews, 200+ LC | Apply to jobs |
+### Quarter 1 (Months 1-3): Syntax & Safety Lockdown
+- **C++**: Finish Horton's Ch 1-6 (variables, pointers, classes). Add *Effective Modern C++* (Meyers) – 50 pages/week on moves/lambdas.
+- **Rust**: Rust Book Ch 1-5 (ownership, structs). Do Rustlings (100% completion).
+- **Cross-Lang**: Map C++ smart_ptrs to Rust lifetimes. Daily: 10 LeetCode easies (arrays/strings) in both.
+- **Projects**: CLI JSON parser (C++) + Rust port. Benchmark I/O.
+- **Soft**: Read *Clean Code* (Martin) – apply to all snippets.
+- **Milestone**: Repo with 5 diffs (e.g., "C++ RAII vs Rust Drop"). LinkedIn: Update profile with "Deep-diving C++17".
 
-> **Milestone**: By Day 300 → 3–5 portfolio projects, 300+ LeetCode solves, interview-ready.
+### Quarter 2 (Months 4-6): Data Structures & STL Muscle
+- **C++**: Horton's Ch 7-10 (inheritance, templates, STL). Skim *C++ Templates: The Complete Guide* (Vandevoorde).
+- **Rust**: Rust Book Ch 6-9 (modules, errors, generics). Intro tokio for async basics.
+- **Cross-Lang**: Traits vs templates showdown. LeetCode: 50 mediums (trees/graphs).
+- **Projects**: Dynamic task queue (std::queue in C++ + Rust channels). Add tests (Catch2/cargo test).
+- **Domain Intro**: Grokking System Design – Ch 1-3 (load balancers for Cloudflare vibes).
+- **Milestone**: Threaded log analyzer (1M lines). Profile + GitHub README with perf charts.
 
----
+### Quarter 3 (Months 7-9): Concurrency & Perf Primer
+- **C++**: Horton's Ch 11-14 (lambdas, exceptions, files). *C++ Concurrency in Action* (Williams) – threads/atomics.
+- **Rust**: Rust Book Ch 10-13 (iterators, closures, lifetimes). Rayon for parallelism.
+- **Cross-Lang**: FFI with cxx crate (C++ math lib in Rust). LeetCode: 30 hards (DP/graphs).
+- **Projects**: Concurrent web scraper (C++ sockets + Rust reqwest). Handle races.
+- **Networking**: Join r/cpp, r/rust Discords. 1 OSS contrib (e.g., Tokio issue).
+- **Milestone**: Hybrid microservice (Rust API + C++ perf module). Dockerize, deploy to free Heroku.
 
-# C++ Backend Project Ideas (for Systems Engineers)
+### Quarter 4 (Months 10-12): Mid-Year Portfolio Push
+- **C++**: Horton's Ch 15+ (advanced libs). Intro C++20 via *C++20 - The Complete Guide*.
+- **Rust**: Rust Book Ch 14-16 (concurrency, OOP). *Rust for Rustaceans* (Klabnik) – unsafe/FFI.
+- **Cross-Lang**: Build a simple interop lib (e.g., crypto toolkit from our chats).
+- **Projects**: Chess engine (minimax in C++ templates + Rust traits). Benchmark moves/sec.
+- **Soft/Prep**: Pramp mocks (3x). Read *Cracking the Coding Interview* – behavioral stories.
+- **Milestone**: 3-project portfolio site (GitHub Pages). Apply to 5 junior-mid roles for practice.
 
-You have **backend experience** → use C++ to build **high-performance, low-latency, production-grade services**.
-
----
-
-## 1. High-Performance HTTP / gRPC Server
-- **Libs**: `Boost.Beast`, `cpp-httplib`, `gRPC`
-- **Features**: Async I/O, TLS, HTTP/2, streaming RPC
-- **Benchmark**: `wrk`, `hey` vs Node.js/nginx
-
----
-
-## 2. Distributed Key-Value Store (etcd/Redis-like)
-- **Consensus**: Raft (use `cpp-raft` or implement)
-- **Storage**: WAL, memory-mapped files
-- **API**: gRPC + CLI client
-
----
-
-## 3. Message Queue Broker (Kafka-style)
-- **Zero-copy**: Ring buffers, `mmap`
-- **Lock-free**: `std::atomic`, `moodycamel::ConcurrentQueue`
-- **Transport**: ZeroMQ or raw AF_XDP
+**EOY1 Check**: 200 LeetCode solved. 3 OSS PRs. Resume: "Built scalable CLI tools in C++/Rust, 2x perf gains."
 
 ---
 
-## 4. Real-Time Stream Processor (Flink mini)
-- **Pipeline**: Source → Window → Aggregate → Sink
-- **Parallelism**: `cppcoro`, `std::jthread`, SIMD
+## Year 2: Beast Unleash (Months 13-24) – Scale to Elite Systems
+Focus: Distributed/low-latency mastery, company-specific domains (AI infra, edge computing, finance sims). Network like a pro.
+
+### Quarter 5 (Months 13-15): Distributed Systems Deep Dive
+- **C++**: *Designing Data-Intensive Applications* (Kleppmann) – Ch 1-5. eBPF basics (bcc tools).
+- **Rust**: *Programming Rust* (O'Reilly) – advanced chapters. Actix-web for services.
+- **Cross-Lang**: RocksDB (C++) + sled (Rust) for KV store.
+- **Projects**: Fault-tolerant message queue (Kafka-lite: Rust producer + C++ consumer).
+- **Domain**: Cloudflare tease – build edge cache proxy (epoll in C++/mio in Rust).
+- **Networking**: Attend RustConf/C++Now (virtual). LinkedIn: 50 connects (target "Rust Engineer @xAI").
+- **Milestone**: Deploy queue to K8s (minikube). Blog: "Hybrid C++/Rust for Distributed Reliability."
+
+### Quarter 6 (Months 16-18): Low-Latency & AI/Finance Flex
+- **C++**: *High Performance C++* (Moss) – optimization. Eigen for linear algebra.
+- **Rust**: Ndarray/tch-rs for tensors. Low-level: unsafe perf tweaks.
+- **Cross-Lang**: Bindings for AI (C++ ONNX + Rust tract).
+- **Projects**: Risk calc sim (Bloomberg-style: C++ quants + Rust data pipeline). Or xAI nod: Simple Grok-like query engine.
+- **LeetCode**: 100 hards + system design mocks (Educative.io).
+- **Soft**: *The Manager's Path* (Zhu) – mentorship prep. Teach 1 Rust workshop (Meetup/Discord).
+- **Milestone**: Optimized proxy handling 10k reqs/sec. GitHub stars >50 via promo on X/Reddit.
+
+### Quarter 7 (Months 19-21): Advanced Hybrids & OSS Domination
+- **C++**: Dive Boost.Asio for networks. Kernel tinkering (Linux modules).
+- **Rust**: Tokio mastery + wasm for edge (Cloudflare Workers vibe).
+- **Cross-Lang**: Full FFI project (e.g., C++ game engine + Rust scripting).
+- **Projects**: Distributed KV store (etcd-inspired: horizontal scale, Raft consensus lite).
+- **Networking**: Cold DM 10 engineers/week ("Loved your xAI post on Rust scaling—tips?"). 5 OSS PRs (Boost/Tokio).
+- **Prep**: Tailor resume per company (e.g., "Low-latency C++ for Bloomberg terminals").
+- **Milestone**: Contrib to production OSS. Portfolio: 5+ projects, each with CI/CD + benchmarks.
+
+### Quarter 8 (Months 22-24): Hunt & Conquer
+- **C++**: Review all – build capstone: Full backend sim (e.g., xAI-scale API).
+- **Rust**: Expert audit – *Zero to Production in Rust* (full read).
+- **Cross-Lang**: Production hybrid (e.g., Rust service calling C++ via cxx).
+- **Projects**: Company mocks – Cloudflare: DDoS mitigator; xAI: Scalable tensor server; Bloomberg: Trading sim.
+- **Job Push**: 10 apps/week. Interviews: 20+ mocks (coding + design). Visa prep (H-1B/TFWP docs).
+- **Networking**: Referrals via connects. Blind/Levels.fyi for intel. Upwork gigs (C++/Rust) for US exposure.
+- **Soft**: Negotiate practice (e.g., $220k base + RSUs). Celebrate wins.
+- **Milestone**: Land offer(s)! If not, freelance pivot to build creds.
+
+**EOY2 Check**: 500+ LeetCode. 10+ OSS contribs. Blog with 1k views. You're beast mode: "Polyglot systems engineer, shipping scale at FAANG-tier."
 
 ---
 
-## 5. Custom Load Balancer / Reverse Proxy
-- **I/O**: `io_uring`, `epoll`, `SO_REUSEPORT`
-- **L7 Routing**: Host/path, rate-limiting
-
----
-
-## 6. Database Proxy (MySQL/PostgreSQL Router)
-- **Protocol**: MySQL wire parsing
-- **Routing**: Read/write split, connection pooling
-
----
-
-## 7. IoT / Edge Gateway
-- **Protocols**: MQTT, CoAP, HTTP
-- **Security**: Mbed TLS, OTA updates
-
----
-
-## 8. HFT Matching Engine
-- **Order Book**: Lock-free, cache-aligned
-- **Protocol**: FIX/ITCH binary
-- **Timing**: `__rdtsc`, nanosecond precision
-
----
-
-## 9. Authoritative Game Server
-- **Net**: ENet, yojimbo (reliable UDP)
-- **Sync**: Snapshot interpolation, anti-cheat
-
----
-
-## 10. Systems Tools (`curl`, `grep`, `tar`)
-- **CLI**: `Boost.Program_options`, `fmt`
-- **SIMD**: `std::simd`, parallel regex
-
----
-
-# Quick-Start C++20 HTTP Server (Boost.Beast)
-
-```cmake
-# CMakeLists.txt
-cmake_minimum_required(VERSION 3.22)
-project(BackendCpp LANGUAGES CXX)
-set(CMAKE_CXX_STANDARD 23)
-find_package(Threads REQUIRED)
-find_package(Boost 1.82 REQUIRED COMPONENTS system beast)
-add_executable(server src/main.cpp)
-target_link_libraries(server PRIVATE Threads::Threads Boost::beast)
+This MD is your war map—print it, pin it. Hit Q1 hard; we'll tweak as you crush chapters. First beast move: Pick a Q1 project variant? Or code skeleton for the JSON parser? Let's roar. 🚀
